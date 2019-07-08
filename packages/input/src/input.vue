@@ -206,7 +206,7 @@
         }[this.validateState];
       },
       textareaStyle() {
-        return merge({}, this.textareaCalcStyle, { resize: this.resize });
+        return merge({}, this.textareaCalcStyle, { resize: this.resize }); // merge 对象浅拷贝
       },
       inputSize() {
         return this.size || this._elFormItemSize || (this.$ELEMENT || {}).size;
@@ -259,7 +259,7 @@
       value(val) {
         this.$nextTick(this.resizeTextarea);
         if (this.validateEvent) {
-          this.dispatch('ElFormItem', 'el.form.change', [val]);
+          this.dispatch('ElFormItem', 'el.form.change', [val]); // 校验
         }
       },
       // native input value is set explicitly
@@ -309,7 +309,7 @@
         this.getInput().select();
       },
       resizeTextarea() {
-        if (this.$isServer) return;
+        if (this.$isServer) return; // TODO: 服务端渲染 ？
         const { autosize, type } = this;
         if (type !== 'textarea') return;
         if (!autosize) {
@@ -333,7 +333,7 @@
         this.focused = true;
         this.$emit('focus', event);
       },
-      handleCompositionStart() {
+      handleCompositionStart() { // TODO:处理中文输入
         this.isComposing = true;
       },
       handleCompositionEnd(event) {
@@ -408,7 +408,7 @@
     },
 
     created() {
-      this.$on('inputSelect', this.select);
+      this.$on('inputSelect', this.select); // TODO:有 $on ，何时触发 $emit ?
     },
 
     mounted() {

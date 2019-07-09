@@ -1,4 +1,5 @@
 <template>
+  <!-- aria-owns表示元素所拥有的，这里这里的文本框拥有其对应的下拉列表。 -->
   <div
     class="el-autocomplete"
     v-clickoutside="close"
@@ -40,6 +41,8 @@
       ref="suggestions"
       :placement="placement"
       :id="id">
+      <!-- slot 内容；但在 el-autocomplete-suggestions 中 slot 是被放置在 el-scrollbar 组件中？？？ -->
+      <!-- 这里v-for循环生成的 li 是 el-autocomplete-suggestions 组件的 $slots.default -->
       <li
         v-for="(item, index) in suggestions"
         :key="index"
@@ -49,6 +52,7 @@
         role="option"
         :aria-selected="highlightedIndex === index"
       >
+        <!-- slot：包一下啥意思？？？ -->
         <slot :item="item">
           {{ item[valueKey] }}
         </slot>
@@ -152,6 +156,10 @@
       }
     },
     watch: {
+      value(val) {
+        debugger
+        console.log(val)
+      },
       suggestionVisible(val) {
         let $input = this.getInput();
         if ($input) {
@@ -226,6 +234,8 @@
         }
       },
       select(item) {
+        // TODO:如何把值赋给 input 组件的？？？
+        // 使用 v-model 和 v-bind="$props" ：emit 更新父组件的 value 值。而子组件 el-input v-bind="$props" 的值随之更新 el-input 内的 value 值
         this.$emit('input', item[this.valueKey]);
         this.$emit('select', item);
         this.$nextTick(_ => {
@@ -262,6 +272,9 @@
       getInput() {
         return this.$refs.input.getInput();
       }
+    },
+    created () {
+      debugger
     },
     mounted() {
       this.debouncedGetData = debounce(this.debounce, this.getData);

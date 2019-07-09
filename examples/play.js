@@ -5,6 +5,9 @@ import 'packages/theme-chalk/src/index.scss';
 
 Vue.use(Element);
 
+Vue.config.devtools = true;
+Vue.config.productionTip = true;
+
 new Vue({ // eslint-disable-line
   render: h => h(App)
 }).$mount('#app');

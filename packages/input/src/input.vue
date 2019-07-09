@@ -327,7 +327,7 @@
         const input = this.getInput();
         if (!input) return;
         if (input.value === this.nativeInputValue) return;
-        input.value = this.nativeInputValue;
+        input.value = this.nativeInputValue; // input 赋值
       },
       handleFocus(event) {
         this.focused = true;
@@ -408,6 +408,7 @@
     },
 
     created() {
+      debugger
       this.$on('inputSelect', this.select); // TODO:有 $on ，何时触发 $emit ?
     },
 

@@ -39,7 +39,12 @@ export default {
     }
   },
 
+  created () {
+    debugger;
+  },
+
   render(h) {
+    debugger
     let gutter = scrollbarWidth();
     let style = this.wrapStyle;
 
@@ -61,7 +66,7 @@ export default {
       style: this.viewStyle,
       ref: 'resize'
     }, this.$slots.default);
-    const wrap = (
+    const wrap = ( // TODO: 直接赋值。确实 vNode???
       <div
         ref="wrap"
         style={ style }

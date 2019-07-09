@@ -130,6 +130,7 @@ export default {
     },
 
     doDestroy(forceDestroy) {
+      debugger
       /* istanbul ignore if */
       if (!this.popperJS || (this.showPopper && !forceDestroy)) return;
       this.popperJS.destroy();

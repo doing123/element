@@ -10,6 +10,7 @@
         tag="ul"
         wrap-class="el-autocomplete-suggestion__wrap"
         view-class="el-autocomplete-suggestion__list">
+        <!-- 组件 el-scrollbar 的 $slots.default -->
         <li v-if="!parent.hideLoading && parent.loading"><i class="el-icon-loading"></i></li>
         <slot v-else>
         </slot>
@@ -67,6 +68,7 @@
     },
 
     created() {
+      debugger
       this.$on('visible', (val, inputWidth) => {
         this.dropdownWidth = inputWidth + 'px';
         this.showPopper = val;

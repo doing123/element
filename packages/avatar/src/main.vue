@@ -94,7 +94,7 @@ export default {
       lineHeight: `${size}px`
     } : {};
 
-    return (
+    return ( // TODO:render 函数返回 类似 JSX 语法
       <span class={ avatarClass } style={ sizeStyle }>
         {
           this.renderAvatar()

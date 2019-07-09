@@ -19,6 +19,8 @@ export const addResizeListener = function(element, fn) {
   if (isServer) return;
   if (!element.__resizeListeners__) {
     element.__resizeListeners__ = [];
+    // TODO: 监听元素的内容矩形大小的变更，并通知做出相应的反应
+    // MutationObserver：观察 DOM node 节点的变化
     element.__ro__ = new ResizeObserver(resizeHandler);
     element.__ro__.observe(element);
   }

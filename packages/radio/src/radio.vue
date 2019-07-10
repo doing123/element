@@ -21,6 +21,8 @@
       }"
     >
       <span class="el-radio__inner"></span>
+      <!-- TODO: radio 中 checked 何时设置的？？？ -->
+      <!-- 看了下源码 type=radio 特殊处理编译 -->
       <input
         ref="radio"
         class="el-radio__original"
@@ -119,6 +121,10 @@
       tabIndex() {
         return (this.isDisabled || (this.isGroup && this.model !== this.label)) ? -1 : 0;
       }
+    },
+
+    beforeCreate () {
+      debugger
     },
 
     methods: {

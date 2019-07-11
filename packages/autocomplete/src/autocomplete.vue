@@ -157,8 +157,7 @@
     },
     watch: {
       value(val) {
-        debugger
-        console.log(val)
+        console.log(val);
       },
       suggestionVisible(val) {
         let $input = this.getInput();
@@ -272,9 +271,6 @@
       getInput() {
         return this.$refs.input.getInput();
       }
-    },
-    created () {
-      debugger
     },
     mounted() {
       this.debouncedGetData = debounce(this.debounce, this.getData);

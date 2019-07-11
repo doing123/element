@@ -32,6 +32,10 @@
       }
     },
     render(h) {
+      //  TODO:Proxy ???
+      // [[Handler]]:Object
+      // [[Target]]:VueComponent
+      // [[IsRevoked]]:false
       const { type, tagSize, hit, effect } = this;
       const classes = [
         'el-tag',

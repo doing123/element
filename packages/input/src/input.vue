@@ -408,7 +408,6 @@
     },
 
     created() {
-      debugger
       this.$on('inputSelect', this.select); // TODO:有 $on ，何时触发 $emit ?
     },
 

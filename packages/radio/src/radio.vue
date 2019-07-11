@@ -122,11 +122,6 @@
         return (this.isDisabled || (this.isGroup && this.model !== this.label)) ? -1 : 0;
       }
     },
-
-    beforeCreate () {
-      debugger
-    },
-
     methods: {
       handleChange() {
         this.$nextTick(() => {

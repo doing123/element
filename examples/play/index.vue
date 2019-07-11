@@ -1,8 +1,10 @@
 <template>
-  <div style="margin: 20px;">
-    <el-radio v-model="radio" label="1">备选项</el-radio>
-    <el-radio v-model="radio" label="2">备选项</el-radio>
+<section class="test" style="height: 500px;overflow:auto;">
+  <div style="height: 1200px;">
+    <div>test</div>
+    <el-backtop target=".test"></el-backtop>
   </div>
+</section>
 </template>
 
 <script>
